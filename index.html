@@ -3,28 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FH Services</title>
+    <title>fh services</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to My Simple Website</h1>
+        <h1>fh services</h1>
     </header>
 
     <main>
         <section>
             <h2>About Us</h2>
-            <p>This is a simple website created as an example. It contains a header, a main content section, and a footer.</p>
+            <p>Just a test</p>
         </section>
 
         <section>
             <h2>Contact</h2>
-            <p>You can contact us via email at <a href="mailto:info@example.com">info@example.com</a>.</p>
+            <p>Just a test</p>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 My Simple Website</p>
+        <p>&copy; 2024 Test</p>
     </footer>
+
+    <div id="chatbox">
+        <div id="chatbox-header">
+            <h4>Chat with Us</h4>
+            <button id="chatbox-close-btn">&times;</button>
+        </div>
+        <div id="chatbox-messages">
+            <p>Welcome! How can we help you today?</p>
+        </div>
+        <div id="chatbox-input">
+            <input type="text" id="chatbox-input-field" placeholder="Type a message...">
+            <button id="chatbox-send-btn">Send</button>
+        </div>
+    </div>
+    <button id="chatbox-open-btn">Chat</button>
+
+    <script>
+        const webhookURL = 'https://discord.com/api/webhooks/1280893988303409153/w8w2wqZ8IIQcVC_ZOaOfQke3k5zHTkqMBNUKJwhvmgADbg0wTDJ_YDehF-zNC88aYdQR'; // Replace with your webhook URL
+    
+        function sendNotification(message) {
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    content: message
+                })
+            }).catch(error => console.error('Error sending notification:', error));
+        }
+    
+        document.getElementById("chatbox-open-btn").addEventListener("click", function() {
+            document.getElementById("chatbox").style.display = "flex";
+            this.style.display = "none";
+            sendNotification('Chatbox opened.');
+            setTimeout(() => {
+                const messagePara = document.createElement("p");
+                messagePara.textContent = "Automated: Hi there! How can we assist you today?";
+                document.getElementById("chatbox-messages").appendChild(messagePara);
+                document.getElementById("chatbox-messages").scrollTop = document.getElementById("chatbox-messages").scrollHeight;
+            }, 1000); // Delay of 1 second
+        });
+    
+        document.getElementById("chatbox-close-btn").addEventListener("click", function() {
+            document.getElementById("chatbox").style.display = "none";
+            document.getElementById("chatbox-open-btn").style.display = "block";
+            sendNotification('Chatbox closed.');
+        });
+    
+        document.getElementById("chatbox-send-btn").addEventListener("click", function() {
+            const inputField = document.getElementById("chatbox-input-field");
+            const message = inputField.value.trim();
+            if (message !== "") {
+                const messagePara = document.createElement("p");
+                messagePara.textContent = "You: " + message;
+                document.getElementById("chatbox-messages").appendChild(messagePara);
+                inputField.value = ""; // Clear the input field
+                document.getElementById("chatbox-messages").scrollTop = document.getElementById("chatbox-messages").scrollHeight; // Scroll to bottom
+    
+                sendNotification(`New message: ${message}`);
+    
+                // Simulate an automated response after a short delay
+                setTimeout(() => {
+                    const responsePara = document.createElement("p");
+                    responsePara.textContent = "Automated: Thank you for your message!";
+                    document.getElementById("chatbox-messages").appendChild(responsePara);
+                    document.getElementById("chatbox-messages").scrollTop = document.getElementById("chatbox-messages").scrollHeight;
+                }, 2000); // Delay of 2 seconds
+            }
+        });
+    
+        document.getElementById("chatbox-input-field").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("chatbox-send-btn").click();
+            }
+        });
+    </script>
+    
+    
 </body>
 </html>

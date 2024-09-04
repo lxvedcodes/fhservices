@@ -8,11 +8,15 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-image: url('galaxy.jpg'); /* Galaxy background image */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Make the background fixed during scroll */
+    color: white; /* Ensure text is readable on dark background */
 }
 
 header {
-    background: #333;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
     color: #fff;
     padding: 1rem 0;
     text-align: center;
@@ -26,6 +30,8 @@ main {
     padding: 1rem;
     max-width: 800px;
     margin: auto;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+    border-radius: 10px;
 }
 
 section {
@@ -33,11 +39,11 @@ section {
 }
 
 h2 {
-    color: #333;
+    color: #f4f4f4; /* Light color for headings to contrast with the dark background */
 }
 
 a {
-    color: #333;
+    color: #ffd700; /* Gold color for links to make them stand out */
     text-decoration: none;
 }
 
@@ -46,7 +52,7 @@ a:hover {
 }
 
 footer {
-    background: #333;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
     color: #fff;
     text-align: center;
     padding: 0.5rem 0;

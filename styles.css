@@ -8,11 +8,12 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-image: url('galaxy.jpg'); /* Galaxy background image */
-    background-size: cover; /* Cover the entire page */
-    background-position: center; /* Center the background image */
-    background-attachment: fixed; /* Make the background fixed during scroll */
-    color: white; /* Ensure text is readable on dark background */
+    background-image: url('galaxy.jpg');
+    background-color: #000; /* Fallback color */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
 }
 
 header {

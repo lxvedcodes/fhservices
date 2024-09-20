@@ -42,7 +42,7 @@
     </div>
     <button id="chatbox-open-btn">Chat</button>
 
-    <script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H288Q8K93Q">
         const webhookURL = 'https://discord.com/api/webhooks/1280893988303409153/w8w2wqZ8IIQcVC_ZOaOfQke3k5zHTkqMBNUKJwhvmgADbg0wTDJ_YDehF-zNC88aYdQR'; // Replace with your webhook URL
     
         function sendNotification(message) {
@@ -103,8 +103,14 @@
                 document.getElementById("chatbox-send-btn").click();
             }
         });
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-H288Q8K93Q');
     </script>
-    
+
     
 </body>
 </html>

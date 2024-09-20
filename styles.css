@@ -108,7 +108,7 @@ main {
 
 #chatbox-send-btn {
     padding: 10px;
-    background: #ffd700;
+    background: purple;
     border: none;
     color: black;
     border-radius: 0 0 10px 0;
@@ -119,7 +119,7 @@ main {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: #ffd700;
+    background: purple;
     color: black;
     border: none;
     padding: 10px 20px;
@@ -128,7 +128,7 @@ main {
 }
 
 #chatbox-open-btn:hover {
-    background: #ffcc00;
+    background: purple;
 }
 
 section {
@@ -140,7 +140,7 @@ h2 {
 }
 
 a {
-    color: #ffd700; /* Gold color for links to make them stand out */
+    color: purple; /* Gold color for links to make them stand out */
     text-decoration: none;
 }
 
